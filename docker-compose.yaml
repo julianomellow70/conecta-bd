@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+
+  api-bd-conecta:
+    build: .
+    ports:
+      - "3000:3000"
+
+  mariadb:
+    image: mariadb:10.7
+    ports:
+      - 3306:3306
+    volumes:
+      - ~/apps/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_USER=root
